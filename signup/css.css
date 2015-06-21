@@ -6,6 +6,12 @@
  * Licensed under MIT 
  * Based on Bootstrap v3.3.4
 */
+
+.info-text {
+  max-width: 240px;
+  margin: auto;
+}
+
 /* Add custom CSS classes here 
  * 
  * img {
