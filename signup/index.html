@@ -16,16 +16,16 @@
     </head>
     
     <body>
-        <div class="cover">
+        <div class="cover" id="cover-div">
             <div class="background-image-fixed cover-image" style="background-image : url('L2KBJB91D6 (1).jpg')"></div>
             <div class="container">
                 <div class="row">
-                    <div class="col-md-12 text-center">
+                    <div class="col-md-12 text-center" id="main-logo-col">
                         <img src="jumpAgrade.png" class="img-responsive">
-                        <h2 contenteditable="true">Helping Tutors Help Students</h2>
+                        <h2>Helping Tutors Help Students</h2>
                         <br>
                         <br>
-                        <h2 contenteditable="true">
+                        <h2>
                             <i class="fa fa-fw fa-arrow-down"></i>
                         </h2>
                     </div>
@@ -46,7 +46,7 @@
                                 <div class="col-md-4">
                                     <i class="fa fa-3x fa-fw fa-users"></i>
                                     <h2>Existing Relationships</h2>
-                                    <p class="info-text" contenteditable="true">We are helping tutors work with their existing students by providing additional
+                                    <p class="info-text">We are helping tutors work with their existing students by providing additional
                                         help online. Think of submitting homework with a photo on their phone.</p>
                                 </div>
                                 <div class="col-md-4">
@@ -134,6 +134,27 @@
                 </div>
             </div>
         </div>
+        <script type="text/javascript">
+            function animate(elem, style, unit, from, to, time, prop) {
+               if (!elem) return;
+               var start = new Date().getTime(),
+                   timer = setInterval(function() {
+                       var step = Math.min(1, (new Date().getTime() - start) / time);
+                       if (prop) {
+                           elem[style] = (from + step * (to - from)) + unit;
+                       } else {
+                           elem.style[style] = (from + step * (to - from)) + unit;
+                       }
+                       if (step == 1) clearInterval(timer);
+                   }, 25);
+               elem.style[style] = from + unit;
+           }
+           var logoArea = document.getElementById('main-logo-col');
+           logoArea.style.cursor = 'pointer';
+           logoArea.onclick = function() {
+               animate(document.body, "scrollTop", "", 0, document.getElementById("info-section").offsetTop, 500, true);
+           };
+        </script>
     </body>
 
 </html>
